@@ -154,13 +154,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check-Out Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysv-PA-2mu">
-                                                    <rect key="frame" x="8" y="8" width="125" height="27.5"/>
+                                                    <rect key="frame" x="16" y="11" width="125" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01/03/2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEj-Pd-SFO">
-                                                    <rect key="frame" x="279" y="8" width="88" height="27.5"/>
+                                                    <rect key="frame" x="271" y="11" width="88" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -306,6 +306,7 @@
                         <outlet property="checkInDatePicker" destination="LC7-kY-ozg" id="a5i-Z2-vY1"/>
                         <outlet property="checkOutDateLabel" destination="GEj-Pd-SFO" id="usd-vV-JVy"/>
                         <outlet property="checkOutDatePicker" destination="M10-0j-Fuj" id="J8O-dL-8H9"/>
+                        <outlet property="doneButton" destination="BWQ-bQ-RpY" id="VyS-S5-C8f"/>
                         <outlet property="emailTextField" destination="rA7-4M-Ak6" id="tEF-IK-waE"/>
                         <outlet property="firstNameTextField" destination="7HL-Mk-64v" id="UE3-bJ-jmJ"/>
                         <outlet property="lastNameTextField" destination="NaA-1L-mhN" id="yyS-JB-JLP"/>

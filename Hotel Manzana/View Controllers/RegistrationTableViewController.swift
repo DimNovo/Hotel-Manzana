@@ -22,6 +22,7 @@ class RegistrationTableViewController: UITableViewController
     @IBOutlet weak var numberOfAdultsStepper: UIStepper!
     @IBOutlet weak var numberOfChildrenLabel: UILabel!
     @IBOutlet weak var numberOfChildrenStepper: UIStepper!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
     
     // MARK: - ... Properties
     let checkInLabelIndexPath = IndexPath(row: 0, section: 1)
@@ -83,14 +84,19 @@ class RegistrationTableViewController: UITableViewController
     {
         UIBarButtonItem.init().isEnabled.toggle()
         
-        guard !(firstNameTextField.text?.isEmpty)!,
-            !(lastNameTextField.text?.isEmpty)!,
-            !(emailTextField.text?.isEmpty)!
+        guard   !(firstNameTextField.text?.isEmpty)!,
+                !(lastNameTextField.text?.isEmpty)!,  // Проверка заполнения полей
+                !(emailTextField.text?.isEmpty)!
             else
         {
+            firstNameTextField.placeholder = "This field must be filled in!   First Name"
+            lastNameTextField.placeholder = "This field must be filled in!   Last Name"
+            emailTextField.placeholder = "This field must be filled in!   Email"
+            doneButton.tintColor = #colorLiteral(red: 0.6642242074, green: 0.6642400622, blue: 0.6642315388, alpha: 1)
             return
         }
         
+        doneButton.tintColor = #colorLiteral(red: 0.1697602868, green: 0.3536986709, blue: 1, alpha: 1)
         UIBarButtonItem.init().isEnabled.toggle()
         
         let firstName = firstNameTextField.text!
