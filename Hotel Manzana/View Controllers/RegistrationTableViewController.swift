@@ -79,25 +79,33 @@ class RegistrationTableViewController: UITableViewController
         
     }
     
-    // MARK: - ... @IBAction
-    @IBAction func doneBarButtonTapped(_ sender: UIBarButtonItem)
+    func doneButtonColorCheck() -> UIBarButtonItem
     {
-        UIBarButtonItem.init().isEnabled.toggle()
-        
-        guard   !(firstNameTextField.text?.isEmpty)!,
-                !(lastNameTextField.text?.isEmpty)!,  // Проверка заполнения полей
-                !(emailTextField.text?.isEmpty)!
-            else
+        guard !(firstNameTextField.text?.isEmpty)!,
+            !(lastNameTextField.text?.isEmpty)!,
+            !(emailTextField.text?.isEmpty)! else
         {
             firstNameTextField.placeholder = "This field must be filled in!   First Name"
             lastNameTextField.placeholder = "This field must be filled in!   Last Name"
             emailTextField.placeholder = "This field must be filled in!   Email"
+            
             doneButton.tintColor = #colorLiteral(red: 0.6642242074, green: 0.6642400622, blue: 0.6642315388, alpha: 1)
-            return
+            return doneButton
         }
         
         doneButton.tintColor = #colorLiteral(red: 0.1697602868, green: 0.3536986709, blue: 1, alpha: 1)
-        UIBarButtonItem.init().isEnabled.toggle()
+        return doneButton
+    }
+    
+    // MARK: - ... @IBAction
+    @IBAction func doneBarButtonTapped(_ sender: UIBarButtonItem)
+    {
+        
+        guard doneButtonColorCheck().tintColor == #colorLiteral(red: 0.1697602868, green: 0.3536986709, blue: 1, alpha: 1) as UIColor else
+            
+        {
+            return
+        }
         
         let firstName = firstNameTextField.text!
         let lastName = lastNameTextField.text!
@@ -119,7 +127,6 @@ class RegistrationTableViewController: UITableViewController
         
         print(#function, registration)
     }
-    
     
     @IBAction func datePickerChanged(_ sender: UIDatePicker)
     {
