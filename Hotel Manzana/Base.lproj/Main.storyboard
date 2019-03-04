@@ -124,12 +124,12 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="0.0" id="NSa-Xh-7Uw">
                                         <rect key="frame" x="0.0" y="287.5" width="375" height="0.0"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NSa-Xh-7Uw" id="DHw-Q0-cAr">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NSa-Xh-7Uw" id="DHw-Q0-cAr">
                                             <rect key="frame" x="0.0" y="-0.5" width="375" height="0.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="LC7-kY-ozg">
-                                                    <rect key="frame" x="16" y="11" width="343" height="216.5"/>
+                                                    <rect key="frame" x="16" y="11" width="343" height="216"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="573179632.26361406">
                                                         <!--2019-03-02 00:33:52 +0000-->
                                                     </date>
@@ -139,7 +139,6 @@
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="LC7-kY-ozg" secondAttribute="bottom" id="Ofy-LI-YpS"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="LC7-kY-ozg" secondAttribute="trailing" id="djJ-yf-UY4"/>
                                                 <constraint firstItem="LC7-kY-ozg" firstAttribute="leading" secondItem="DHw-Q0-cAr" secondAttribute="leadingMargin" id="i2F-Sv-fq4"/>
                                                 <constraint firstItem="LC7-kY-ozg" firstAttribute="top" secondItem="DHw-Q0-cAr" secondAttribute="topMargin" id="pF1-E8-EXE"/>
@@ -180,12 +179,12 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="0.0" id="bFp-4k-m4E">
                                         <rect key="frame" x="0.0" y="331.5" width="375" height="0.0"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bFp-4k-m4E" id="xPh-Fa-aLh">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bFp-4k-m4E" id="xPh-Fa-aLh">
                                             <rect key="frame" x="0.0" y="-0.5" width="375" height="0.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="M10-0j-Fuj">
-                                                    <rect key="frame" x="16" y="11" width="343" height="216.5"/>
+                                                    <rect key="frame" x="16" y="11" width="343" height="216"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="573179632.26361406">
                                                         <!--2019-03-02 00:33:52 +0000-->
                                                     </date>
@@ -196,7 +195,6 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="M10-0j-Fuj" secondAttribute="trailing" id="8Bk-wS-hYi"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="M10-0j-Fuj" secondAttribute="bottom" id="JcC-jl-Seo"/>
                                                 <constraint firstItem="M10-0j-Fuj" firstAttribute="leading" secondItem="xPh-Fa-aLh" secondAttribute="leadingMargin" id="auf-ze-ZMo"/>
                                                 <constraint firstItem="M10-0j-Fuj" firstAttribute="top" secondItem="xPh-Fa-aLh" secondAttribute="topMargin" id="pto-eh-w3Q"/>
                                             </constraints>
