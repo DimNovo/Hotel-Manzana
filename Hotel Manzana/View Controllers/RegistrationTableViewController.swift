@@ -129,6 +129,9 @@ class RegistrationTableViewController: UITableViewController
         )
         
         print(#function, registration)
+        firstNameTextField.text?.removeAll()
+        lastNameTextField.text?.removeAll()
+        emailTextField.text?.removeAll()
     }
     
     @IBAction func datePickerChanged(_ sender: UIDatePicker)
