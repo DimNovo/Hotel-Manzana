@@ -56,6 +56,7 @@ class RegistrationTableViewController: UITableViewController
         
         updateDateViews()
         updateNumberOfGuests()
+        hideKeyboardWhenTappedAround()
     }
     
     // MARK: - ... Methods
@@ -81,9 +82,10 @@ class RegistrationTableViewController: UITableViewController
     
     func doneButtonColorCheck() -> UIBarButtonItem
     {
-        guard !(firstNameTextField.text?.isEmpty)!,
-            !(lastNameTextField.text?.isEmpty)!,
-            !(emailTextField.text?.isEmpty)! else
+        guard firstNameTextField.hasText,
+              lastNameTextField.hasText,
+              emailTextField.hasText
+            else
         {
             firstNameTextField.placeholder = "This field must be filled in!   First Name"
             lastNameTextField.placeholder = "This field must be filled in!   Last Name"
@@ -93,7 +95,8 @@ class RegistrationTableViewController: UITableViewController
             return doneButton
         }
         
-        doneButton.tintColor = #colorLiteral(red: 0.1697602868, green: 0.3536986709, blue: 1, alpha: 1)
+        doneButton.tintColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+        
         return doneButton
     }
     
@@ -101,7 +104,7 @@ class RegistrationTableViewController: UITableViewController
     @IBAction func doneBarButtonTapped(_ sender: UIBarButtonItem)
     {
         
-        guard doneButtonColorCheck().tintColor == #colorLiteral(red: 0.1697602868, green: 0.3536986709, blue: 1, alpha: 1) as UIColor else
+        guard doneButtonColorCheck().tintColor == #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1) as UIColor else
             
         {
             return

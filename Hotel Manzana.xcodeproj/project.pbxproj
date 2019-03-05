@@ -14,6 +14,7 @@
 		74542E4C2229F1890041FB9F /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74542E4B2229F1890041FB9F /* Registration.swift */; };
 		74542E4E2229F35D0041FB9F /* RoomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74542E4D2229F35D0041FB9F /* RoomType.swift */; };
 		74542E502229F58C0041FB9F /* RegistrationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74542E4F2229F58C0041FB9F /* RegistrationTableViewController.swift */; };
+		74CB752B222DF998000E4D85 /* keyboardHideByTapAroundExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CB752A222DF998000E4D85 /* keyboardHideByTapAroundExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		74542E4B2229F1890041FB9F /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
 		74542E4D2229F35D0041FB9F /* RoomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomType.swift; sourceTree = "<group>"; };
 		74542E4F2229F58C0041FB9F /* RegistrationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationTableViewController.swift; sourceTree = "<group>"; };
+		74CB752A222DF998000E4D85 /* keyboardHideByTapAroundExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyboardHideByTapAroundExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				74542E4F2229F58C0041FB9F /* RegistrationTableViewController.swift */,
+				74CB752A222DF998000E4D85 /* keyboardHideByTapAroundExtension.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				74542E392229F0460041FB9F /* AppDelegate.swift in Sources */,
 				74542E502229F58C0041FB9F /* RegistrationTableViewController.swift in Sources */,
 				74542E4E2229F35D0041FB9F /* RoomType.swift in Sources */,
+				74CB752B222DF998000E4D85 /* keyboardHideByTapAroundExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
