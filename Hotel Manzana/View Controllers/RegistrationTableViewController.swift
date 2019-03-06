@@ -11,6 +11,8 @@ import UIKit
 class RegistrationTableViewController: UITableViewController
 {
     // MARK: - ... @IBOutlet
+    
+    @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -22,8 +24,7 @@ class RegistrationTableViewController: UITableViewController
     @IBOutlet weak var numberOfAdultsStepper: UIStepper!
     @IBOutlet weak var numberOfChildrenLabel: UILabel!
     @IBOutlet weak var numberOfChildrenStepper: UIStepper!
-    @IBOutlet weak var doneButton: UIBarButtonItem!
-    
+
     // MARK: - ... Properties
     let checkInLabelIndexPath = IndexPath(row: 0, section: 1)
     let checkInPickerIndexPath = IndexPath(row: 1, section: 1)
@@ -54,6 +55,7 @@ class RegistrationTableViewController: UITableViewController
         checkInDatePicker.minimumDate = midnightToday
         checkInDatePicker.date = midnightToday
         
+        doneBarButtonItem.isEnabled = false
         updateDateViews()
         updateNumberOfGuests()
         hideKeyboardWhenTappedAround()
@@ -80,36 +82,9 @@ class RegistrationTableViewController: UITableViewController
         
     }
     
-    func doneButtonColorCheck() -> UIBarButtonItem
-    {
-        guard firstNameTextField.hasText,
-              lastNameTextField.hasText,
-              emailTextField.hasText
-            else
-        {
-            firstNameTextField.placeholder = "This field must be filled in!   First Name"
-            lastNameTextField.placeholder = "This field must be filled in!   Last Name"
-            emailTextField.placeholder = "This field must be filled in!   Email"
-            
-            doneButton.tintColor = #colorLiteral(red: 0.6642242074, green: 0.6642400622, blue: 0.6642315388, alpha: 1)
-            return doneButton
-        }
-        
-        doneButton.tintColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
-        
-        return doneButton
-    }
-    
     // MARK: - ... @IBAction
     @IBAction func doneBarButtonTapped(_ sender: UIBarButtonItem)
     {
-        
-        guard doneButtonColorCheck().tintColor == #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1) as UIColor else
-            
-        {
-            return
-        }
-        
         let firstName = firstNameTextField.text!
         let lastName = lastNameTextField.text!
         let emailAddress = emailTextField.text!
@@ -129,9 +104,10 @@ class RegistrationTableViewController: UITableViewController
         )
         
         print(#function, registration)
-        firstNameTextField.text?.removeAll()
-        lastNameTextField.text?.removeAll()
-        emailTextField.text?.removeAll()
+        firstNameTextField.text!.removeAll()
+        lastNameTextField.text!.removeAll()
+        emailTextField.text!.removeAll()
+        doneBarButtonItem.isEnabled.toggle()
     }
     
     @IBAction func datePickerChanged(_ sender: UIDatePicker)
@@ -142,6 +118,23 @@ class RegistrationTableViewController: UITableViewController
     @IBAction func stepperValueChanged(_ sender: UIStepper)
     {
         updateNumberOfGuests()
+    }
+    
+    @IBAction func textFieldsCheck(_ sender: UITextField)
+    {
+        if !(firstNameTextField.text?.isEmpty)!,
+            !(lastNameTextField.text?.isEmpty)!,
+            !(emailTextField.text?.isEmpty)!
+        {
+            doneBarButtonItem.tintColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
+            doneBarButtonItem.isEnabled = true
+        }
+            
+        else
+            
+        {
+            doneBarButtonItem.isEnabled = false
+        }
     }
 }
 

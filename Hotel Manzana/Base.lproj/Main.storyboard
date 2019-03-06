@@ -33,6 +33,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFieldsCheck:" destination="JzC-uE-D7w" eventType="editingChanged" id="jqU-qQ-l9H"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -55,6 +58,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFieldsCheck:" destination="JzC-uE-D7w" eventType="editingChanged" id="q2y-xl-BuM"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -77,6 +83,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFieldsCheck:" destination="JzC-uE-D7w" eventType="editingChanged" id="oqn-Kx-2vD"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -306,7 +315,7 @@
                         <outlet property="checkInDatePicker" destination="LC7-kY-ozg" id="a5i-Z2-vY1"/>
                         <outlet property="checkOutDateLabel" destination="GEj-Pd-SFO" id="usd-vV-JVy"/>
                         <outlet property="checkOutDatePicker" destination="M10-0j-Fuj" id="J8O-dL-8H9"/>
-                        <outlet property="doneButton" destination="BWQ-bQ-RpY" id="VyS-S5-C8f"/>
+                        <outlet property="doneBarButtonItem" destination="BWQ-bQ-RpY" id="gIB-Ag-tgi"/>
                         <outlet property="emailTextField" destination="rA7-4M-Ak6" id="tEF-IK-waE"/>
                         <outlet property="firstNameTextField" destination="7HL-Mk-64v" id="UE3-bJ-jmJ"/>
                         <outlet property="lastNameTextField" destination="NaA-1L-mhN" id="yyS-JB-JLP"/>
