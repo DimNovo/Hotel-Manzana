@@ -24,14 +24,14 @@ class RegistrationTableViewController: UITableViewController
     @IBOutlet weak var numberOfAdultsStepper: UIStepper!
     @IBOutlet weak var numberOfChildrenLabel: UILabel!
     @IBOutlet weak var numberOfChildrenStepper: UIStepper!
-
+    
     // MARK: - ... Properties
     let checkInLabelIndexPath = IndexPath(row: 0, section: 1)
     let checkInPickerIndexPath = IndexPath(row: 1, section: 1)
     let checkOutLabelIndexPath = IndexPath(row: 2, section: 1)
     let checkOutPickerIndexPath = IndexPath(row: 3, section: 1)
     
-    var isCheckInPickerShow: Bool = true // Пикер ввода даты въезда открыт изначально
+    var isCheckInPickerShow: Bool = false  // Пикер ввода даты въезда открыт изначально
     {
         didSet
         {
@@ -148,14 +148,26 @@ extension RegistrationTableViewController/*: UITableViewDelegate*/
         switch indexPath
         {
         case checkInLabelIndexPath:
-            isCheckInPickerShow.toggle()
             
-            isCheckOutPickerShow.toggle() // Закрывает Picker даты выезда
+            if !isCheckInPickerShow
+            {
+                isCheckInPickerShow.toggle()
+            }
+            else
+            {
+                isCheckOutPickerShow.toggle()
+            }
             
-        case checkOutLabelIndexPath:
-            isCheckOutPickerShow.toggle()
+        case checkOutLabelIndexPath:          // муть мутная...
             
-            isCheckInPickerShow.toggle() // Закрывает Picker даты въезда
+            if  isCheckOutPickerShow
+            {
+                isCheckOutPickerShow.toggle()
+            }
+            else
+            {
+                isCheckInPickerShow.toggle()
+            }
             
         default:
             return
