@@ -25,6 +25,7 @@ class RegistrationTableViewController: UITableViewController
     @IBOutlet weak var numberOfChildrenLabel: UILabel!
     @IBOutlet weak var numberOfChildrenStepper: UIStepper!
     @IBOutlet weak var wifiSwitch: UISwitch!
+    @IBOutlet weak var roomTypeLabel: UILabel!
     
     // MARK: - ... Properties
     let checkInLabelIndexPath = IndexPath(row: 0, section: 1)
@@ -47,6 +48,14 @@ class RegistrationTableViewController: UITableViewController
         }
     }
     
+    var roomType: RoomType?
+    {
+        didSet
+        {
+            roomTypeLabel.text = roomType?.name
+        }
+    }
+    
     // MARK: - ... UIViewController
     override func viewDidLoad()
     {
@@ -60,6 +69,23 @@ class RegistrationTableViewController: UITableViewController
         updateDateViews()
         updateNumberOfGuests()
         hideKeyboardWhenTappedAround()
+    }
+    
+    // MARK: - ... Prepare for Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        guard let roomType = roomType else
+        {
+            return
+        }
+        guard segue.identifier == "RoomSelectionSegue" else
+        {
+            return
+        }
+        
+        let controller = segue.destination as! RoomSelectionTableViewController
+        controller.selectedRoomType = roomType
+        
     }
     
     // MARK: - ... Methods
@@ -80,7 +106,6 @@ class RegistrationTableViewController: UITableViewController
     {
         numberOfAdultsLabel.text = "\(Int(numberOfAdultsStepper.value))"
         numberOfChildrenLabel.text = "\(Int(numberOfChildrenStepper.value))"
-        
     }
     
     // MARK: - ... @IBAction
@@ -95,6 +120,12 @@ class RegistrationTableViewController: UITableViewController
         let numberOfChildren = Int(numberOfChildrenStepper.value)
         let wifi = wifiSwitch.isOn
         
+        guard let roomType = roomType else
+            
+        {
+            return
+        }
+        
         let registration = Registration(
             firstName: firstName,
             lastName: lastName,
@@ -103,7 +134,8 @@ class RegistrationTableViewController: UITableViewController
             checkOutDate: checkOutDate,
             numberOfAdults: numberOfAdults,
             numberOfChildren: numberOfChildren,
-            wifi: wifi
+            wifi: wifi,
+            roomType: roomType
         )
         
         print(#function, registration)
@@ -125,6 +157,13 @@ class RegistrationTableViewController: UITableViewController
     
     @IBAction func textFieldsCheck(_ sender: UITextField)
     {
+        guard roomType != nil else
+            
+        {
+            return
+            
+        }
+        
         if !(firstNameTextField.text?.isEmpty)!,
             !(lastNameTextField.text?.isEmpty)!,
             !(emailTextField.text?.isEmpty)!
@@ -138,6 +177,16 @@ class RegistrationTableViewController: UITableViewController
         {
             doneBarButtonItem.isEnabled = false
         }
+    }
+    
+    // MARK: - ... Unwind Segue
+    @IBAction func unwind(segue: UIStoryboardSegue)
+    {
+        guard segue.identifier == "SaveRoomSegue" else { return }
+        
+        let controller = segue.source as! RoomSelectionTableViewController
+        roomType = controller.selectedRoomType
+        
     }
 }
 

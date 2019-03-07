@@ -366,7 +366,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="ru1-ar-e95" kind="show" id="fnG-8J-hBP"/>
+                                            <segue destination="ru1-ar-e95" kind="show" identifier="RoomSelectionSegue" id="fnG-8J-hBP"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -398,6 +398,7 @@
                         <outlet property="numberOfAdultsStepper" destination="6l9-ne-MCQ" id="YzR-5d-qwl"/>
                         <outlet property="numberOfChildrenLabel" destination="hYs-im-H8e" id="F2i-zU-EFu"/>
                         <outlet property="numberOfChildrenStepper" destination="qP9-NX-Vut" id="2xf-Yz-Zal"/>
+                        <outlet property="roomTypeLabel" destination="ZwZ-lg-1kI" id="fBV-aq-iXq"/>
                         <outlet property="wifiSwitch" destination="lwD-br-k1o" id="cx2-z3-q17"/>
                     </connections>
                 </tableViewController>
@@ -445,11 +446,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Room Selection" id="Hyo-KR-ysb">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="DZM-Wo-CmM"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="765-0P-8tw"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="DZM-Wo-CmM">
+                            <connections>
+                                <segue destination="iCB-mX-YbC" kind="unwind" unwindAction="unwindWithSegue:" id="wut-BO-Dye"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="765-0P-8tw">
+                            <connections>
+                                <segue destination="iCB-mX-YbC" kind="unwind" identifier="SaveRoomSegue" unwindAction="unwindWithSegue:" id="ZzI-Lj-gnG"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dLo-y1-g34" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="iCB-mX-YbC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1497" y="178"/>
         </scene>
