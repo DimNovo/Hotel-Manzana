@@ -24,6 +24,7 @@ class RegistrationTableViewController: UITableViewController
     @IBOutlet weak var numberOfAdultsStepper: UIStepper!
     @IBOutlet weak var numberOfChildrenLabel: UILabel!
     @IBOutlet weak var numberOfChildrenStepper: UIStepper!
+    @IBOutlet weak var wifiSwitch: UISwitch!
     
     // MARK: - ... Properties
     let checkInLabelIndexPath = IndexPath(row: 0, section: 1)
@@ -92,6 +93,7 @@ class RegistrationTableViewController: UITableViewController
         let checkOutDate = checkOutDatePicker.date
         let numberOfAdults = Int(numberOfAdultsStepper.value)
         let numberOfChildren = Int(numberOfChildrenStepper.value)
+        let wifi = wifiSwitch.isOn
         
         let registration = Registration(
             firstName: firstName,
@@ -100,7 +102,8 @@ class RegistrationTableViewController: UITableViewController
             checkInDate: checkInDate,
             checkOutDate: checkOutDate,
             numberOfAdults: numberOfAdults,
-            numberOfChildren: numberOfChildren
+            numberOfChildren: numberOfChildren,
+            wifi: wifi
         )
         
         print(#function, registration)
@@ -138,9 +141,10 @@ class RegistrationTableViewController: UITableViewController
     }
 }
 
-// MARK: - ... UITableViewDelegate
-extension RegistrationTableViewController/*: UITableViewDelegate*/
+// MARK: - ... RegistrationTableViewController Extensions
+extension RegistrationTableViewController
 {
+    // MARK: - ... UITableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         tableView.deselectRow(at: indexPath, animated: true)

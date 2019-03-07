@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		741D90852230683900C26615 /* RoomSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741D90842230683900C26615 /* RoomSelectionTableViewController.swift */; };
 		74542E392229F0460041FB9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74542E382229F0460041FB9F /* AppDelegate.swift */; };
 		74542E3E2229F0460041FB9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74542E3C2229F0460041FB9F /* Main.storyboard */; };
 		74542E402229F0480041FB9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74542E3F2229F0480041FB9F /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		741D90842230683900C26615 /* RoomSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectionTableViewController.swift; sourceTree = "<group>"; };
 		74542E352229F0460041FB9F /* Hotel Manzana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hotel Manzana.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74542E382229F0460041FB9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74542E3D2229F0460041FB9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -83,8 +85,9 @@
 		74542E512229F59C0041FB9F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				74542E4F2229F58C0041FB9F /* RegistrationTableViewController.swift */,
 				74CB752A222DF998000E4D85 /* keyboardHideByTapAroundExtension.swift */,
+				741D90842230683900C26615 /* RoomSelectionTableViewController.swift */,
+				74542E4F2229F58C0041FB9F /* RegistrationTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 				74542E4C2229F1890041FB9F /* Registration.swift in Sources */,
 				74542E392229F0460041FB9F /* AppDelegate.swift in Sources */,
 				74542E502229F58C0041FB9F /* RegistrationTableViewController.swift in Sources */,
+				741D90852230683900C26615 /* RoomSelectionTableViewController.swift in Sources */,
 				74542E4E2229F35D0041FB9F /* RoomType.swift in Sources */,
 				74CB752B222DF998000E4D85 /* keyboardHideByTapAroundExtension.swift in Sources */,
 			);
