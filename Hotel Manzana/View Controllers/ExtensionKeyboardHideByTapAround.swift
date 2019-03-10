@@ -1,5 +1,5 @@
 //
-//  keyboardHideByTapAroundExtension.swift
+//  ExtensionKeyboardHideByTapAround.swift
 //  Hotel Manzana
 //
 //  Created by Dmitry Novosyolov on 05/03/2019.

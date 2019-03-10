@@ -51,5 +51,20 @@ struct Registration
         self.wifi = wifi
         self.roomType = roomType
     }
+    
+    static var allGuests: [Registration]
+    {
+        return
+            [
+                Registration(firstName: "Adriana", lastName: "Lima"),
+                Registration(firstName: "Kendall", lastName: "Jenner"),
+                Registration(firstName: "Alessandra", lastName: "Ambrósio"),
+                Registration(firstName: "Bar", lastName: "Refaeli"),
+                Registration(firstName: "Lily", lastName: "Aldridge"),
+                Registration(firstName: "Cara", lastName: "Delevingne"),
+                Registration(firstName: "Barbara", lastName: "Palvin"),
+                
+        ]
+    }
 }
 

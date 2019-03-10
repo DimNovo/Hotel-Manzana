@@ -15,7 +15,8 @@
 		74542E4C2229F1890041FB9F /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74542E4B2229F1890041FB9F /* Registration.swift */; };
 		74542E4E2229F35D0041FB9F /* RoomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74542E4D2229F35D0041FB9F /* RoomType.swift */; };
 		74542E502229F58C0041FB9F /* RegistrationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74542E4F2229F58C0041FB9F /* RegistrationTableViewController.swift */; };
-		74CB752B222DF998000E4D85 /* keyboardHideByTapAroundExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CB752A222DF998000E4D85 /* keyboardHideByTapAroundExtension.swift */; };
+		74577D7E22330626006D28A0 /* GuestListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74577D7D22330626006D28A0 /* GuestListTableViewController.swift */; };
+		74CB752B222DF998000E4D85 /* ExtensionKeyboardHideByTapAround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CB752A222DF998000E4D85 /* ExtensionKeyboardHideByTapAround.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +30,8 @@
 		74542E4B2229F1890041FB9F /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
 		74542E4D2229F35D0041FB9F /* RoomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomType.swift; sourceTree = "<group>"; };
 		74542E4F2229F58C0041FB9F /* RegistrationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationTableViewController.swift; sourceTree = "<group>"; };
-		74CB752A222DF998000E4D85 /* keyboardHideByTapAroundExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyboardHideByTapAroundExtension.swift; sourceTree = "<group>"; };
+		74577D7D22330626006D28A0 /* GuestListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestListTableViewController.swift; sourceTree = "<group>"; };
+		74CB752A222DF998000E4D85 /* ExtensionKeyboardHideByTapAround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionKeyboardHideByTapAround.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +66,8 @@
 			children = (
 				74542E4A2229F1570041FB9F /* Models */,
 				74542E512229F59C0041FB9F /* View Controllers */,
-				74542E382229F0460041FB9F /* AppDelegate.swift */,
-				74542E3C2229F0460041FB9F /* Main.storyboard */,
-				74542E3F2229F0480041FB9F /* Assets.xcassets */,
-				74542E412229F0480041FB9F /* LaunchScreen.storyboard */,
+				74577D80223307F2006D28A0 /* Resources */,
+				74577D7F223307D7006D28A0 /* View */,
 				74542E442229F0480041FB9F /* Info.plist */,
 			);
 			path = "Hotel Manzana";
@@ -85,11 +85,30 @@
 		74542E512229F59C0041FB9F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				74CB752A222DF998000E4D85 /* keyboardHideByTapAroundExtension.swift */,
-				741D90842230683900C26615 /* RoomSelectionTableViewController.swift */,
+				74CB752A222DF998000E4D85 /* ExtensionKeyboardHideByTapAround.swift */,
+				74577D7D22330626006D28A0 /* GuestListTableViewController.swift */,
 				74542E4F2229F58C0041FB9F /* RegistrationTableViewController.swift */,
+				741D90842230683900C26615 /* RoomSelectionTableViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		74577D7F223307D7006D28A0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				74542E3C2229F0460041FB9F /* Main.storyboard */,
+				74542E412229F0480041FB9F /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		74577D80223307F2006D28A0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				74542E382229F0460041FB9F /* AppDelegate.swift */,
+				74542E3F2229F0480041FB9F /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,12 +182,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74577D7E22330626006D28A0 /* GuestListTableViewController.swift in Sources */,
 				74542E4C2229F1890041FB9F /* Registration.swift in Sources */,
 				74542E392229F0460041FB9F /* AppDelegate.swift in Sources */,
 				74542E502229F58C0041FB9F /* RegistrationTableViewController.swift in Sources */,
 				741D90852230683900C26615 /* RoomSelectionTableViewController.swift in Sources */,
 				74542E4E2229F35D0041FB9F /* RoomType.swift in Sources */,
-				74CB752B222DF998000E4D85 /* keyboardHideByTapAroundExtension.swift in Sources */,
+				74CB752B222DF998000E4D85 /* ExtensionKeyboardHideByTapAround.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

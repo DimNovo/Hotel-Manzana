@@ -11,7 +11,6 @@ import UIKit
 class RegistrationTableViewController: UITableViewController
 {
     // MARK: - ... @IBOutlet
-    
     @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -33,7 +32,10 @@ class RegistrationTableViewController: UITableViewController
     let checkOutLabelIndexPath = IndexPath(row: 2, section: 1)
     let checkOutPickerIndexPath = IndexPath(row: 3, section: 1)
     
-    var isCheckInPickerShow: Bool = false  // Пикер ввода даты въезда открыт изначально
+    var guestToFirstName: String?
+    var guestToLastName: String?
+    
+    var isCheckInPickerShow: Bool = false
     {
         didSet
         {
@@ -69,6 +71,9 @@ class RegistrationTableViewController: UITableViewController
         updateDateViews()
         updateNumberOfGuests()
         hideKeyboardWhenTappedAround()
+        
+        self.firstNameTextField!.text = guestToFirstName
+        self.lastNameTextField!.text = guestToLastName
     }
     
     // MARK: - ... Prepare for Segue
@@ -94,12 +99,10 @@ class RegistrationTableViewController: UITableViewController
         checkOutDatePicker.minimumDate = checkInDatePicker.date.addingTimeInterval(60 * 60 * 24)
         
         let dataFormatter = DateFormatter()
-        let timeZone = NSTimeZone(name: "GMT")
-        dataFormatter.timeZone = (timeZone! as TimeZone)
         dataFormatter.dateStyle = .medium
         
         checkInDateLabel.text = dataFormatter.string(from: checkInDatePicker.date)
-        checkOutDateLabel.text = dataFormatter.string(from: checkInDatePicker.date)
+        checkOutDateLabel.text = dataFormatter.string(from: checkOutDatePicker.date)
     }
     
     func updateNumberOfGuests()
@@ -138,10 +141,24 @@ class RegistrationTableViewController: UITableViewController
             roomType: roomType
         )
         
+        let alertController = UIAlertController(
+            title: "Registration Done Successfully",
+            message: "For: \(firstName) \(lastName)\nAdults: \(numberOfAdults) Children: \(numberOfChildren)\nRoom: \(roomType.name)\nDate: Check In: \(checkInDateLabel.text!)\n Date: Check Out: \(checkOutDateLabel.text!)\n",
+            preferredStyle: .actionSheet)
+        
+        let doneAction = UIAlertAction(title: "Thank you for your order!",
+                                       style: .destructive, handler: nil)
+        
+        alertController.addAction(doneAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+        
         print(#function, registration)
+        
         firstNameTextField.text!.removeAll()
         lastNameTextField.text!.removeAll()
         emailTextField.text!.removeAll()
+        
         doneBarButtonItem.isEnabled.toggle()
     }
     
@@ -157,18 +174,10 @@ class RegistrationTableViewController: UITableViewController
     
     @IBAction func textFieldsCheck(_ sender: UITextField)
     {
-        guard roomType != nil else
-            
-        {
-            return
-            
-        }
-        
         if !(firstNameTextField.text?.isEmpty)!,
             !(lastNameTextField.text?.isEmpty)!,
             !(emailTextField.text?.isEmpty)!
         {
-            doneBarButtonItem.tintColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
             doneBarButtonItem.isEnabled = true
         }
             
