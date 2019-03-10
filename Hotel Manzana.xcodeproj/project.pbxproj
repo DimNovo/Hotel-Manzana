@@ -15,7 +15,7 @@
 		74542E4C2229F1890041FB9F /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74542E4B2229F1890041FB9F /* Registration.swift */; };
 		74542E4E2229F35D0041FB9F /* RoomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74542E4D2229F35D0041FB9F /* RoomType.swift */; };
 		74542E502229F58C0041FB9F /* RegistrationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74542E4F2229F58C0041FB9F /* RegistrationTableViewController.swift */; };
-		74577D7E22330626006D28A0 /* GuestListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74577D7D22330626006D28A0 /* GuestListTableViewController.swift */; };
+		74577D7E22330626006D28A0 /* GuestsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74577D7D22330626006D28A0 /* GuestsListTableViewController.swift */; };
 		74CB752B222DF998000E4D85 /* ExtensionKeyboardHideByTapAround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CB752A222DF998000E4D85 /* ExtensionKeyboardHideByTapAround.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +30,7 @@
 		74542E4B2229F1890041FB9F /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
 		74542E4D2229F35D0041FB9F /* RoomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomType.swift; sourceTree = "<group>"; };
 		74542E4F2229F58C0041FB9F /* RegistrationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationTableViewController.swift; sourceTree = "<group>"; };
-		74577D7D22330626006D28A0 /* GuestListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestListTableViewController.swift; sourceTree = "<group>"; };
+		74577D7D22330626006D28A0 /* GuestsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsListTableViewController.swift; sourceTree = "<group>"; };
 		74CB752A222DF998000E4D85 /* ExtensionKeyboardHideByTapAround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionKeyboardHideByTapAround.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,7 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				74CB752A222DF998000E4D85 /* ExtensionKeyboardHideByTapAround.swift */,
-				74577D7D22330626006D28A0 /* GuestListTableViewController.swift */,
+				74577D7D22330626006D28A0 /* GuestsListTableViewController.swift */,
 				74542E4F2229F58C0041FB9F /* RegistrationTableViewController.swift */,
 				741D90842230683900C26615 /* RoomSelectionTableViewController.swift */,
 			);
@@ -182,7 +182,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74577D7E22330626006D28A0 /* GuestListTableViewController.swift in Sources */,
+				74577D7E22330626006D28A0 /* GuestsListTableViewController.swift in Sources */,
 				74542E4C2229F1890041FB9F /* Registration.swift in Sources */,
 				74542E392229F0460041FB9F /* AppDelegate.swift in Sources */,
 				74542E502229F58C0041FB9F /* RegistrationTableViewController.swift in Sources */,

@@ -8,24 +8,22 @@
 
 import UIKit
 
-class GuestListTableViewController: UITableViewController
+class GuestsListTableViewController: UITableViewController
 {
     // MARK: - ... Properties
-     private var guestFirstName: String?
-     private var guestLastName: String?
+    private var guestFirstName: String?
+    private var guestLastName: String?
     
     // MARK: - ... Prepare for Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        guard segue.identifier == "GuestRegistrationSegue" else
+        guard segue.identifier == "GuestsRegistrationSegue" else
         {
             return
         }
         
         let controller = segue.destination as! UINavigationController
         let rootController = controller.viewControllers.first as! RegistrationTableViewController
-        
-        print(#function, "\(String(describing: guestFirstName)) \(String(describing: guestLastName))")
         
         rootController.guestToFirstName = guestFirstName
         rootController.guestToLastName = guestLastName
@@ -43,15 +41,17 @@ class GuestListTableViewController: UITableViewController
 }
 
 // MARK: - ... GuestListTableViewController Extensions
-extension GuestListTableViewController
+extension GuestsListTableViewController
 {
     // MARK: - ... UITabelViewDelegate Protocol
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        tableView.deselectRow(at: indexPath, animated: true)
         
         guestFirstName = Registration.allGuests[indexPath.row].firstName
         guestLastName = Registration.allGuests[indexPath.row].lastName
         
-        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "GuestsRegistrationSegue", sender: self)
     }
     
     // MARK: - ... UITabelViewDataSource Protocol

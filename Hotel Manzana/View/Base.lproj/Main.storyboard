@@ -9,14 +9,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Registration List-->
+        <!--Guests List-->
         <scene sceneID="1XC-pn-UXs">
             <objects>
-                <tableViewController id="iIS-iq-puJ" customClass="GuestListTableViewController" customModule="Hotel_Manzana" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="iIS-iq-puJ" customClass="GuestsListTableViewController" customModule="Hotel_Manzana" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="oP7-Z3-Bm8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GuestRegistrationCell" textLabel="LVY-DD-Tpa" detailTextLabel="PJI-6R-AE2" style="IBUITableViewCellStyleSubtitle" id="XDj-7c-sEI">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -41,9 +42,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="gTK-Y0-dU9" kind="presentation" identifier="GuestRegistrationSegue" id="Ck2-bF-taM"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -51,11 +49,14 @@
                             <outlet property="delegate" destination="iIS-iq-puJ" id="SLl-qN-yTP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Registration List" id="42l-hR-Mcn"/>
+                    <navigationItem key="navigationItem" title="Guests List" id="42l-hR-Mcn"/>
+                    <connections>
+                        <segue destination="gTK-Y0-dU9" kind="presentation" identifier="GuestsRegistrationSegue" id="Tyn-fh-bjQ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9e-L3-yBi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="587" y="-634"/>
+            <point key="canvasLocation" x="572" y="-636"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DPC-eg-Tw7">
@@ -64,6 +65,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="C2x-ZL-97a">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="iIS-iq-puJ" kind="relationship" relationship="rootViewController" id="JtB-HZ-zcn"/>
@@ -71,7 +76,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yUd-J6-hum" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-366" y="-634"/>
+            <point key="canvasLocation" x="-380" y="-635"/>
         </scene>
         <!--New Registration-->
         <scene sceneID="nSf-zS-6wE">
@@ -403,7 +408,7 @@
                                         <rect key="frame" x="0.0" y="575.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BQG-Y8-WNR" id="Fl2-3s-U2f">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="349" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjo-uu-GTs">
@@ -536,13 +541,10 @@
         <scene sceneID="eAA-5C-uV6">
             <objects>
                 <navigationController id="gTK-Y0-dU9" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DbZ-PA-0sl">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="DbZ-PA-0sl">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="JzC-uE-D7w" kind="relationship" relationship="rootViewController" id="QmU-Oi-sIl"/>
