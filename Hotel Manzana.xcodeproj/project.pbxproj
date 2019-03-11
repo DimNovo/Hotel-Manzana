@@ -64,22 +64,21 @@
 		74542E372229F0460041FB9F /* Hotel Manzana */ = {
 			isa = PBXGroup;
 			children = (
-				74542E4A2229F1570041FB9F /* Models */,
-				74542E512229F59C0041FB9F /* View Controllers */,
-				74577D80223307F2006D28A0 /* Resources */,
+				74542E4A2229F1570041FB9F /* Model */,
 				74577D7F223307D7006D28A0 /* View */,
-				74542E442229F0480041FB9F /* Info.plist */,
+				74542E512229F59C0041FB9F /* View Controllers */,
+				74FCB2B82237289D00664E32 /* Supporting Files */,
 			);
 			path = "Hotel Manzana";
 			sourceTree = "<group>";
 		};
-		74542E4A2229F1570041FB9F /* Models */ = {
+		74542E4A2229F1570041FB9F /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				74542E4B2229F1890041FB9F /* Registration.swift */,
 				74542E4D2229F35D0041FB9F /* RoomType.swift */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		74542E512229F59C0041FB9F /* View Controllers */ = {
@@ -97,18 +96,19 @@
 			isa = PBXGroup;
 			children = (
 				74542E3C2229F0460041FB9F /* Main.storyboard */,
-				74542E412229F0480041FB9F /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		74577D80223307F2006D28A0 /* Resources */ = {
+		74FCB2B82237289D00664E32 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				74542E412229F0480041FB9F /* LaunchScreen.storyboard */,
+				74542E442229F0480041FB9F /* Info.plist */,
 				74542E382229F0460041FB9F /* AppDelegate.swift */,
 				74542E3F2229F0480041FB9F /* Assets.xcassets */,
 			);
-			path = Resources;
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,7 +336,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3LF677RTA3;
-				INFOPLIST_FILE = "Hotel Manzana/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Hotel Manzana/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -354,7 +354,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3LF677RTA3;
-				INFOPLIST_FILE = "Hotel Manzana/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Hotel Manzana/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

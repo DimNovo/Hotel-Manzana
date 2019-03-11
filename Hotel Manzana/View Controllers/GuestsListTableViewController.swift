@@ -37,10 +37,11 @@ class GuestsListTableViewController: UITableViewController
     {
         cell.textLabel?.text = guestRegistration.firstName
         cell.detailTextLabel?.text = guestRegistration.lastName
+        
     }
 }
 
-// MARK: - ... GuestListTableViewController Extensions
+// MARK: - ... GuestsListTableViewController Extensions
 extension GuestsListTableViewController
 {
     // MARK: - ... UITabelViewDelegate Protocol

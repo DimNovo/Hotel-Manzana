@@ -32,6 +32,8 @@ class RegistrationTableViewController: UITableViewController
     let checkOutLabelIndexPath = IndexPath(row: 2, section: 1)
     let checkOutPickerIndexPath = IndexPath(row: 3, section: 1)
     
+    let generator = UINotificationFeedbackGenerator()
+    
     var guestToFirstName: String?
     var guestToLastName: String?
     
@@ -160,6 +162,7 @@ class RegistrationTableViewController: UITableViewController
         emailTextField.text!.removeAll()
         
         doneBarButtonItem.isEnabled.toggle()
+        generator.notificationOccurred(.success)
     }
     
     @IBAction func datePickerChanged(_ sender: UIDatePicker)
