@@ -113,6 +113,20 @@ class RegistrationTableViewController: UITableViewController
         numberOfChildrenLabel.text = "\(Int(numberOfChildrenStepper.value))"
     }
     
+    private func clearData()
+    {
+        roomType = .none
+        roomTypeLabel.text = "Select"
+        dismissKeyboard()
+        
+        firstNameTextField.text!.removeAll()
+        lastNameTextField.text!.removeAll()
+        emailTextField.text!.removeAll()
+        
+        doneBarButtonItem.isEnabled.toggle()
+        generator.notificationOccurred(.success)
+    }
+    
     // MARK: - ... @IBAction
     @IBAction func doneBarButtonTapped(_ sender: UIBarButtonItem)
     {
@@ -147,20 +161,6 @@ class RegistrationTableViewController: UITableViewController
         
         print(#function, registration)
         clearData()
-    }
-    
-    private func clearData()
-    {
-        roomType = .none
-        roomTypeLabel.text = "Select"
-        dismissKeyboard()
-        
-        firstNameTextField.text!.removeAll()
-        lastNameTextField.text!.removeAll()
-        emailTextField.text!.removeAll()
-        
-        doneBarButtonItem.isEnabled.toggle()
-        generator.notificationOccurred(.success)
     }
     
     @IBAction func datePickerChanged(_ sender: UIDatePicker)
