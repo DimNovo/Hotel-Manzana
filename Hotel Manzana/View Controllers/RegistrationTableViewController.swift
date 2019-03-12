@@ -36,7 +36,7 @@ class RegistrationTableViewController: UITableViewController
     
     var guestToFirstName: String?
     var guestToLastName: String?
-    
+
     var isCheckInPickerShow: Bool = false
     {
         didSet
@@ -157,7 +157,7 @@ class RegistrationTableViewController: UITableViewController
             roomType: roomType
         )
         
-        AlertView.instance.showAlert(title: "Success!", message: "For: \(firstName) \(lastName)\nEmail: \(emailAddress)\nAdults: \(numberOfAdults) Children: \(numberOfChildren)\nRoom: \(roomType.name)\nWiFi: \(wifi ? "Yes" : "No")\nCheck In: \(checkInDateLabel.text!)\nCheck Out: \(checkOutDateLabel.text!)")
+        AlertView.instance.showAlert(title: "Success!", message: "For: \(firstName) \(lastName)\nEmail: \(emailAddress)\nAdults: \(numberOfAdults) Children: \(numberOfChildren)\nRoom: \(roomType.name)\nWiFi: \(wifi ? "Yes" : "No")\nCheck In: \(checkInDateLabel.text!)\nCheck Out: \(checkOutDateLabel.text!)\n\nApproximate cost: \(Int(((checkOutDate.timeIntervalSinceNow - checkInDate.timeIntervalSinceNow)/86400))*roomType.price + ((Int(checkOutDate.timeIntervalSinceNow - checkInDate.timeIntervalSinceNow))/86400)*(wifi ? 10 : 1))$")
         
         print(#function, registration)
         clearData()

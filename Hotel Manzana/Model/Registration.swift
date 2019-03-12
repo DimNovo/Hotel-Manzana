@@ -63,7 +63,6 @@ struct Registration
                 Registration(firstName: "Lily", lastName: "Aldridge"),
                 Registration(firstName: "Cara", lastName: "Delevingne"),
                 Registration(firstName: "Barbara", lastName: "Palvin"),
-                
         ]
     }
 }
