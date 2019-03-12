@@ -143,10 +143,17 @@ class RegistrationTableViewController: UITableViewController
             roomType: roomType
         )
         
-        dismissKeyboard()
         AlertView.instance.showAlert(title: "Success!", message: "For: \(firstName) \(lastName)\nEmail: \(emailAddress)\nAdults: \(numberOfAdults) Children: \(numberOfChildren)\nRoom: \(roomType.name)\nWiFi: \(wifi ? "Yes" : "No")\nCheck In: \(checkInDateLabel.text!)\nCheck Out: \(checkOutDateLabel.text!)")
         
         print(#function, registration)
+        clearData()
+    }
+    
+    private func clearData()
+    {
+        roomType = .none
+        roomTypeLabel.text = "Select"
+        dismissKeyboard()
         
         firstNameTextField.text!.removeAll()
         lastNameTextField.text!.removeAll()
