@@ -143,17 +143,8 @@ class RegistrationTableViewController: UITableViewController
             roomType: roomType
         )
         
-        let alertController = UIAlertController(
-            title: "Registration Done Successfully",
-            message: "For: \(firstName) \(lastName)\nAdults: \(numberOfAdults) Children: \(numberOfChildren)\nRoom: \(roomType.name)\nDate: Check In: \(checkInDateLabel.text!)\n Date: Check Out: \(checkOutDateLabel.text!)\n",
-            preferredStyle: .actionSheet)
-        
-        let doneAction = UIAlertAction(title: "Thank you for your order!",
-                                       style: .destructive, handler: nil)
-        
-        alertController.addAction(doneAction)
-        
-        self.present(alertController, animated: true, completion: nil)
+        dismissKeyboard()
+        AlertView.instance.showAlert(title: "Success!", message: "For: \(firstName) \(lastName)\nEmail: \(emailAddress)\nAdults: \(numberOfAdults) Children: \(numberOfChildren)\nRoom: \(roomType.name)\nWiFi: \(wifi ? "Yes" : "No")\nCheck In: \(checkInDateLabel.text!)\nCheck Out: \(checkOutDateLabel.text!)")
         
         print(#function, registration)
         
