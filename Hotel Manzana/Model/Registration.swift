@@ -25,21 +25,21 @@ struct Registration
     var roomType: RoomType
     
     init(
-         firstName: String = String(),
-         lastName: String = String(),
-         emailAddress: String = String(),
-         checkInDate: Date = Date(),
-         checkOutDate: Date = Date(),
-         numberOfAdults: Int = Int(),
-         numberOfChildren: Int = Int(),
-         wifi: Bool = Bool(),
-         roomType: RoomType = RoomType(
-            id: Int(),
-            name: String(),
-            shortName: String(),
-            price: Int()
-         )
-       )
+        firstName: String = String(),
+        lastName: String = String(),
+        emailAddress: String = String(),
+        checkInDate: Date = Date(),
+        checkOutDate: Date = Date(),
+        numberOfAdults: Int = Int(),
+        numberOfChildren: Int = Int(),
+        wifi: Bool = Bool(),
+        roomType: RoomType = RoomType(
+        id: Int(),
+        name: String(),
+        shortName: String(),
+        price: Int()
+        )
+        )
     {
         self.firstName = firstName
         self.lastName = lastName
@@ -50,6 +50,11 @@ struct Registration
         self.numberOfChildren = numberOfChildren
         self.wifi = wifi
         self.roomType = roomType
+    }
+    
+    static func loadData() -> [Registration]?
+    {
+        return allGuests
     }
     
     static var allGuests: [Registration]

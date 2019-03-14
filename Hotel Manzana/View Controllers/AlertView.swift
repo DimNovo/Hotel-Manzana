@@ -36,8 +36,12 @@ class AlertView: UIView
     
     private func commonInit()
     {
-        alertView.layer.cornerRadius = 8
+        parentView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        parentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
+        parentView.backgroundColor = .clear
+        
+        alertView.layer.cornerRadius = 8
         alertDoneButton.layer.cornerRadius = 8
         alertDoneButton.layer.borderColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         alertDoneButton.layer.borderWidth = 2
@@ -45,10 +49,6 @@ class AlertView: UIView
         alertImage.layer.cornerRadius = 30
         alertImage.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         alertImage.layer.borderWidth = 2
-        
-        parentView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-        
-        parentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
     func showAlert(title: String, message: String)

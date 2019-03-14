@@ -34,8 +34,7 @@ class RegistrationTableViewController: UITableViewController
     
     let generator = UINotificationFeedbackGenerator()
     
-    var guestToFirstName: String?
-    var guestToLastName: String?
+    var registration = Registration()
 
     var isCheckInPickerShow: Bool = false
     {
@@ -74,8 +73,8 @@ class RegistrationTableViewController: UITableViewController
         updateNumberOfGuests()
         hideKeyboardWhenTappedAround()
         
-        self.firstNameTextField!.text = guestToFirstName
-        self.lastNameTextField!.text = guestToLastName
+        self.firstNameTextField!.text = registration.firstName
+        self.lastNameTextField!.text = registration.lastName
     }
     
     // MARK: - ... Prepare for Segue
@@ -157,7 +156,7 @@ class RegistrationTableViewController: UITableViewController
             roomType: roomType
         )
         
-        AlertView.instance.showAlert(title: "Success!", message: "For: \(firstName) \(lastName)\nEmail: \(emailAddress)\nAdults: \(numberOfAdults) Children: \(numberOfChildren)\nRoom: \(roomType.name)\nWiFi: \(wifi ? "Yes" : "No")\nCheck In: \(checkInDateLabel.text!)\nCheck Out: \(checkOutDateLabel.text!)\n\nApproximate cost: \(Int(((checkOutDate.timeIntervalSinceNow - checkInDate.timeIntervalSinceNow)/86400))*roomType.price + ((Int(checkOutDate.timeIntervalSinceNow - checkInDate.timeIntervalSinceNow))/86400)*(wifi ? 10 : 1))$")
+        AlertView.instance.showAlert(title: "Success!", message: "For: \(firstName) \(lastName)\nEmail: \(emailAddress)\nAdults: \(numberOfAdults) Children: \(numberOfChildren)\nRoom: \(roomType.name)\nWiFi: \(wifi ? "Yes" : "No")\nCheck In: \(checkInDateLabel.text!)\nCheck Out: \(checkOutDateLabel.text!)\n\nApproximate cost: \(Int(((checkOutDate.timeIntervalSinceNow - checkInDate.timeIntervalSinceNow)/86400))*roomType.price + ((Int(checkOutDate.timeIntervalSinceNow - checkInDate.timeIntervalSinceNow))/86400)*(wifi ? 10 : 0))$")
         
         print(#function, registration)
         clearData()

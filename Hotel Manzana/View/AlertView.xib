@@ -85,7 +85,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.60078660102739723" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.76921018839999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="tkq-7a-DDv" firstAttribute="centerX" secondItem="iZH-v7-r2v" secondAttribute="centerX" id="Btv-DJ-MOG"/>
                         <constraint firstItem="tkq-7a-DDv" firstAttribute="centerY" secondItem="iZH-v7-r2v" secondAttribute="centerY" constant="39.5" id="VBK-Gv-lRn"/>
