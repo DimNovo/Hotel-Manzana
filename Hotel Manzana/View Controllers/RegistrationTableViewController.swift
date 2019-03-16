@@ -11,6 +11,7 @@ import UIKit
 class RegistrationTableViewController: UITableViewController
 {
     // MARK: - ... @IBOutlet
+    @IBOutlet weak var cancelBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -31,8 +32,6 @@ class RegistrationTableViewController: UITableViewController
     let checkInPickerIndexPath = IndexPath(row: 1, section: 1)
     let checkOutLabelIndexPath = IndexPath(row: 2, section: 1)
     let checkOutPickerIndexPath = IndexPath(row: 3, section: 1)
-    
-    let generator = UINotificationFeedbackGenerator()
     
     var registration = Registration()
 
@@ -72,22 +71,14 @@ class RegistrationTableViewController: UITableViewController
         updateDateViews()
         updateNumberOfGuests()
         hideKeyboardWhenTappedAround()
-        
-        self.firstNameTextField!.text = registration.firstName
-        self.lastNameTextField!.text = registration.lastName
+        updateRegistrationInfo()
     }
     
     // MARK: - ... Prepare for Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        guard let roomType = roomType else
-        {
-            return
-        }
-        guard segue.identifier == "RoomSelectionSegue" else
-        {
-            return
-        }
+        guard let roomType = roomType else { return }
+        guard segue.identifier == "RoomSelectionSegue" else { return }
         
         let controller = segue.destination as! RoomSelectionTableViewController
         controller.selectedRoomType = roomType
@@ -106,25 +97,27 @@ class RegistrationTableViewController: UITableViewController
         checkOutDateLabel.text = dataFormatter.string(from: checkOutDatePicker.date)
     }
     
+    func updateRegistrationInfo()
+    {
+        guard navigationItem.title == "Edit" else { return }
+        self.doneBarButtonItem.isEnabled = true
+        self.firstNameTextField!.text = registration.firstName
+        self.lastNameTextField!.text = registration.lastName
+        self.emailTextField.text = registration.emailAddress
+        self.numberOfAdultsLabel.text = String(registration.numberOfAdults)
+        self.numberOfChildrenLabel.text = String(registration.numberOfChildren)
+        self.checkInDatePicker.date = registration.checkInDate
+        self.checkOutDatePicker.date = registration.checkOutDate
+        self.wifiSwitch.setOn(registration.wifi, animated: true)
+        self.roomType = registration.roomType
+    }
+    
     func updateNumberOfGuests()
     {
         numberOfAdultsLabel.text = "\(Int(numberOfAdultsStepper.value))"
         numberOfChildrenLabel.text = "\(Int(numberOfChildrenStepper.value))"
     }
     
-    private func clearData()
-    {
-        roomType = .none
-        roomTypeLabel.text = "Select"
-        dismissKeyboard()
-        
-        firstNameTextField.text!.removeAll()
-        lastNameTextField.text!.removeAll()
-        emailTextField.text!.removeAll()
-        
-        doneBarButtonItem.isEnabled.toggle()
-        generator.notificationOccurred(.success)
-    }
     
     // MARK: - ... @IBAction
     @IBAction func doneBarButtonTapped(_ sender: UIBarButtonItem)
@@ -138,13 +131,9 @@ class RegistrationTableViewController: UITableViewController
         let numberOfChildren = Int(numberOfChildrenStepper.value)
         let wifi = wifiSwitch.isOn
         
-        guard let roomType = roomType else
-            
-        {
-            return
-        }
+        guard let roomType = roomType else { return }
         
-        let registration = Registration(
+            registration = Registration(
             firstName: firstName,
             lastName: lastName,
             emailAddress: emailAddress,
@@ -158,8 +147,10 @@ class RegistrationTableViewController: UITableViewController
         
         AlertView.instance.showAlert(title: "Success!", message: "For: \(firstName) \(lastName)\nEmail: \(emailAddress)\nAdults: \(numberOfAdults) Children: \(numberOfChildren)\nRoom: \(roomType.name)\nWiFi: \(wifi ? "Yes" : "No")\nCheck In: \(checkInDateLabel.text!)\nCheck Out: \(checkOutDateLabel.text!)\n\nApproximate cost: \(Int(((checkOutDate.timeIntervalSinceNow - checkInDate.timeIntervalSinceNow)/86400))*roomType.price + ((Int(checkOutDate.timeIntervalSinceNow - checkInDate.timeIntervalSinceNow))/86400)*(wifi ? 10 : 0))$")
         
-        print(#function, registration)
-        clearData()
+//        print(#function, registration)
+        
+        dismissKeyboard()
+        performSegue(withIdentifier: "SaveSegue", sender: self)
     }
     
     @IBAction func datePickerChanged(_ sender: UIDatePicker)
@@ -185,6 +176,7 @@ class RegistrationTableViewController: UITableViewController
             
         {
             doneBarButtonItem.isEnabled = false
+            cancelBarButtonItem.isEnabled = false
         }
     }
     

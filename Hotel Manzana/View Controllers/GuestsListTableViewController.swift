@@ -11,9 +11,7 @@ import UIKit
 class GuestsListTableViewController: UITableViewController
 {
     // MARK: - ... Properties
-    private var guestFirstName: String?
-    private var guestLastName: String?
-    private var registrations = [Registration]()
+    var registrations = [Registration]()
     
     // MARK: - ... UIViewController Methods
     override func viewDidLoad()
@@ -26,43 +24,52 @@ class GuestsListTableViewController: UITableViewController
     // MARK: - ... Prepare for Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        guard segue.identifier == "GuestsRegistrationSegue" else
-        {
-            return
-        }
+        guard segue.identifier == "EditSegue" else { return }
         
         let controller = segue.destination as! UINavigationController
-        let rootController = controller.viewControllers.first as! RegistrationTableViewController
+        let destination = controller.viewControllers.first as! RegistrationTableViewController
+        guard let index = tableView.indexPathForSelectedRow?.row else { return }
         
-        rootController.registration.firstName = guestFirstName!
-        rootController.registration.lastName = guestLastName!
+        destination.registration = registrations[index]
+        destination.navigationItem.title = "Edit"
+        
+        print(#function, destination.registration)
     }
     
     // MARK: - ... Unwind Segue
     @IBAction func unwind(segue: UIStoryboardSegue)
     {
+        guard segue.identifier == "SaveSegue" else { return }
         let sourse = segue.source as! RegistrationTableViewController
         let registration = sourse.registration
         
-        // Edited Cell
-        if let indexPath = tableView.indexPathForSelectedRow
+        if sourse.navigationItem.title == "Edit",
+            let indexPath = tableView.indexPathForSelectedRow
         {
             registrations[indexPath.row] = registration
-            tableView.reloadRows(at: [indexPath], with: .automatic)
+            
+            print(#function, registration)
         }
-        else
-        {   // Aded Cell
+            
+        else if sourse.navigationItem.title == "New Registration",
+            !sourse.registration.firstName.isEmpty &&
+                !sourse.registration.lastName.isEmpty &&
+                !sourse.registration.emailAddress.isEmpty
+        {
             let indexPath = IndexPath(row: registrations.count, section: 0)
             registrations.append(registration)
             tableView.insertRows(at: [indexPath], with: .automatic)
+            
+            print(#function, registration)
         }
+        tableView.reloadData()
     }
     
     // MARK: - ... Methods
-    func configure(cell: UITableViewCell, with guestRegistration: Registration)
+    func configure(cell: UITableViewCell, with registration: Registration)
     {
-        cell.textLabel?.text = guestRegistration.firstName
-        cell.detailTextLabel?.text = guestRegistration.lastName
+        cell.textLabel?.text = (registration.firstName + " " + registration.lastName)
+        cell.detailTextLabel?.text = registration.emailAddress
         
     }
 }
@@ -74,11 +81,6 @@ extension GuestsListTableViewController
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        guestFirstName = registrations[indexPath.row].firstName
-        guestLastName = registrations[indexPath.row].lastName
-        
-        performSegue(withIdentifier: "GuestsRegistrationSegue", sender: self)
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]?
@@ -116,9 +118,9 @@ extension GuestsListTableViewController
     {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "GuestRegistrationCell")!
-        let guest = registrations[indexPath.row]
+        let registration = registrations[indexPath.row]
         
-        configure(cell: cell, with: guest)
+        configure(cell: cell, with: registration)
         
         return cell
     }
