@@ -68,23 +68,30 @@ class RegistrationTableViewController: UITableViewController
         
         doneBarButtonItem.isEnabled = false
         updateDateViews()
-        updateNumberOfGuests()
         hideKeyboardWhenTappedAround()
+        updateNumberOfGuests()
         updateRegistrationInfo()
     }
     
-    // MARK: - ... Prepare for Segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    // MARK: - ... Methods
+    func updateRegistrationInfo()
     {
-        guard let roomType = roomType else { return }
-        guard segue.identifier == "RoomSelectionSegue" else { return }
+        guard navigationItem.title == "Edit" else { return }
         
-        let controller = segue.destination as! RoomSelectionTableViewController
-        controller.selectedRoomType = roomType
+        firstNameTextField.text = registration.firstName
+        lastNameTextField.text = registration.lastName
+        emailTextField.text = registration.emailAddress
+        checkInDatePicker.date = registration.checkInDate
+        checkOutDatePicker.date = registration.checkOutDate
+        numberOfAdultsLabel.text = String(registration.numberOfAdults)
+        numberOfChildrenLabel.text = String(registration.numberOfChildren)
+        wifiSwitch.isOn = registration.wifi
+        roomType = registration.roomType
         
+        updateDateViews()
+        tableView.reloadData()
     }
     
-    // MARK: - ... Methods
     func updateDateViews()
     {
         checkOutDatePicker.minimumDate = checkInDatePicker.date.addingTimeInterval(60 * 60 * 24)
@@ -96,21 +103,11 @@ class RegistrationTableViewController: UITableViewController
         checkOutDateLabel.text = dataFormatter.string(from: checkOutDatePicker.date)
     }
     
-    func updateRegistrationInfo()
-    {
-        guard navigationItem.title == "Edit" else { return }
-        self.doneBarButtonItem.isEnabled = true
-        self.firstNameTextField!.text = registration.firstName
-        self.lastNameTextField!.text = registration.lastName
-        self.emailTextField.text = registration.emailAddress
-    }
-    
     func updateNumberOfGuests()
     {
         numberOfAdultsLabel.text = "\(Int(numberOfAdultsStepper.value))"
         numberOfChildrenLabel.text = "\(Int(numberOfChildrenStepper.value))"
     }
-    
     
     // MARK: - ... @IBAction
     @IBAction func doneBarButtonTapped(_ sender: UIBarButtonItem)
@@ -138,7 +135,7 @@ class RegistrationTableViewController: UITableViewController
             roomType: roomType
         )
         
-        AlertView.instance.showAlert(title: "Success!",
+        AlertView.instance.showAlert(title: "Success",
                                      message: "For: \(firstName) \(lastName)\nEmail: \(emailAddress)\nAdults: \(numberOfAdults) Children: \(numberOfChildren)\nRoom: \(roomType.name)\nWiFi: \(wifi ? "Yes" : "No")\nCheck In: \(checkInDateLabel.text!)\nCheck Out: \(checkOutDateLabel.text!)\n\nApproximate cost: \(Int(((checkOutDate.timeIntervalSinceNow - checkInDate.timeIntervalSinceNow)/86400))*roomType.price + ((Int(checkOutDate.timeIntervalSinceNow - checkInDate.timeIntervalSinceNow))/86400)*(wifi ? 10 : 0))$")
 
         dismissKeyboard()
@@ -163,12 +160,20 @@ class RegistrationTableViewController: UITableViewController
         {
             doneBarButtonItem.isEnabled = true
         }
-            
         else
-            
         {
             doneBarButtonItem.isEnabled = false
         }
+    }
+    
+    // MARK: - ... Prepare for Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        guard let roomType = roomType else { return }
+        guard segue.identifier == "RoomSelectionSegue" else { return }
+        
+        let controller = segue.destination as! RoomSelectionTableViewController
+        controller.selectedRoomType = roomType
     }
     
     // MARK: - ... Unwind Segue
@@ -179,59 +184,9 @@ class RegistrationTableViewController: UITableViewController
         let controller = segue.source as! RoomSelectionTableViewController
         roomType = controller.selectedRoomType
         
-    }
-}
-
-// MARK: - ... RegistrationTableViewController Extensions
-extension RegistrationTableViewController
-{
-    // MARK: - ... UITableViewDelegate
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        switch indexPath
+        if navigationItem.title == "Edit"
         {
-        case checkInLabelIndexPath:
-            
-            if !isCheckInPickerShow
-            {
-                isCheckInPickerShow.toggle()
-            }
-            else
-            {
-                isCheckOutPickerShow.toggle()
-            }
-            
-        case checkOutLabelIndexPath:          // муть мутная...
-            
-            if  isCheckOutPickerShow
-            {
-                isCheckOutPickerShow.toggle()
-            }
-            else
-            {
-                isCheckInPickerShow.toggle()
-            }
-            
-        default:
-            return
-        }
-        
-        tableView.beginUpdates()
-        tableView.endUpdates()
-        
-    }
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    {
-        switch indexPath
-        {
-        case checkInPickerIndexPath:
-            return isCheckInPickerShow ? 216 : 0
-        case checkOutPickerIndexPath:
-            return isCheckOutPickerShow ? 216 : 0
-        default:
-            return 44
+            doneBarButtonItem.isEnabled = true
         }
     }
 }

@@ -34,16 +34,16 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PJI-6R-AE2">
-                                            <rect key="frame" x="16" y="22" width="69" height="23"/>
+                                            <rect key="frame" x="16" y="22" width="62.5" height="24"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="gTK-Y0-dU9" kind="show" identifier="EditSegue" id="Mqk-5R-MHc"/>
+                                    <segue destination="gTK-Y0-dU9" kind="show" identifier="EditSegue" id="gnH-4J-ubh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -55,7 +55,7 @@
                     <navigationItem key="navigationItem" title="Guests List" id="42l-hR-Mcn">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="9Im-Hv-xkZ">
                             <connections>
-                                <segue destination="gTK-Y0-dU9" kind="show" identifier="" id="1JB-L5-WCC"/>
+                                <segue destination="gTK-Y0-dU9" kind="show" identifier="EditSegue" id="1JB-L5-WCC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -455,7 +455,7 @@
                     <navigationItem key="navigationItem" title="New Registration" id="JL4-JG-CYt">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="o4B-D0-shJ">
                             <connections>
-                                <segue destination="5d3-Xy-Hc4" kind="unwind" identifier="SaveSegue" unwindAction="unwindWithSegue:" id="fsC-Ai-wrk"/>
+                                <segue destination="5d3-Xy-Hc4" kind="unwind" identifier="SaveSegue" unwindAction="unwindWithSegue:" id="No9-PD-hPv"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="BWQ-bQ-RpY">
@@ -562,6 +562,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1JB-L5-WCC"/>
+        <segue reference="gnH-4J-ubh"/>
     </inferredMetricsTieBreakers>
 </document>

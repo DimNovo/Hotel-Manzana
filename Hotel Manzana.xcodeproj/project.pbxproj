@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32D93B8F223D67FE00F88DCF /* GuestsListTVC+UITVDelegate+UITVDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D93B8E223D67FE00F88DCF /* GuestsListTVC+UITVDelegate+UITVDataSource.swift */; };
+		32D93B93223D68F000F88DCF /* RegistrationTVC+UITVDataSource+UITVDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D93B92223D68F000F88DCF /* RegistrationTVC+UITVDataSource+UITVDelegate.swift */; };
+		32D93B96223D6A8500F88DCF /* RoomSelectionTVC+UITVDelegate+UITVDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D93B95223D6A8500F88DCF /* RoomSelectionTVC+UITVDelegate+UITVDataSource.swift */; };
 		741D90852230683900C26615 /* RoomSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741D90842230683900C26615 /* RoomSelectionTableViewController.swift */; };
 		74542E392229F0460041FB9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74542E382229F0460041FB9F /* AppDelegate.swift */; };
 		74542E3E2229F0460041FB9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74542E3C2229F0460041FB9F /* Main.storyboard */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32D93B8E223D67FE00F88DCF /* GuestsListTVC+UITVDelegate+UITVDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GuestsListTVC+UITVDelegate+UITVDataSource.swift"; sourceTree = "<group>"; };
+		32D93B92223D68F000F88DCF /* RegistrationTVC+UITVDataSource+UITVDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegistrationTVC+UITVDataSource+UITVDelegate.swift"; sourceTree = "<group>"; };
+		32D93B95223D6A8500F88DCF /* RoomSelectionTVC+UITVDelegate+UITVDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomSelectionTVC+UITVDelegate+UITVDataSource.swift"; sourceTree = "<group>"; };
 		741D90842230683900C26615 /* RoomSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectionTableViewController.swift; sourceTree = "<group>"; };
 		74542E352229F0460041FB9F /* Hotel Manzana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hotel Manzana.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74542E382229F0460041FB9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +55,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32D93B91223D686900F88DCF /* GuestListTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				74577D7D22330626006D28A0 /* GuestsListTableViewController.swift */,
+				32D93B8E223D67FE00F88DCF /* GuestsListTVC+UITVDelegate+UITVDataSource.swift */,
+			);
+			path = GuestListTableViewController;
+			sourceTree = "<group>";
+		};
+		32D93B94223D698D00F88DCF /* RegistrationTabelViewController */ = {
+			isa = PBXGroup;
+			children = (
+				74CB752A222DF998000E4D85 /* ExtensionKeyboardHideByTapAround.swift */,
+				74542E4F2229F58C0041FB9F /* RegistrationTableViewController.swift */,
+				32D93B92223D68F000F88DCF /* RegistrationTVC+UITVDataSource+UITVDelegate.swift */,
+			);
+			path = RegistrationTabelViewController;
+			sourceTree = "<group>";
+		};
+		32D93B97223D6AA500F88DCF /* RoomSelectionTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				741D90842230683900C26615 /* RoomSelectionTableViewController.swift */,
+				32D93B95223D6A8500F88DCF /* RoomSelectionTVC+UITVDelegate+UITVDataSource.swift */,
+			);
+			path = RoomSelectionTableViewController;
+			sourceTree = "<group>";
+		};
 		74542E2C2229F0460041FB9F = {
 			isa = PBXGroup;
 			children = (
@@ -70,7 +104,7 @@
 			children = (
 				74542E4A2229F1570041FB9F /* Model */,
 				74577D7F223307D7006D28A0 /* View */,
-				74542E512229F59C0041FB9F /* View Controllers */,
+				74542E512229F59C0041FB9F /*  Controller */,
 				74FCB2B82237289D00664E32 /* Supporting Files */,
 			);
 			path = "Hotel Manzana";
@@ -85,21 +119,20 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		74542E512229F59C0041FB9F /* View Controllers */ = {
+		74542E512229F59C0041FB9F /*  Controller */ = {
 			isa = PBXGroup;
 			children = (
-				74CB752A222DF998000E4D85 /* ExtensionKeyboardHideByTapAround.swift */,
-				74577D7D22330626006D28A0 /* GuestsListTableViewController.swift */,
-				74542E4F2229F58C0041FB9F /* RegistrationTableViewController.swift */,
-				741D90842230683900C26615 /* RoomSelectionTableViewController.swift */,
-				748A393222373B29002A7DD8 /* AlertView.swift */,
+				32D93B91223D686900F88DCF /* GuestListTableViewController */,
+				32D93B94223D698D00F88DCF /* RegistrationTabelViewController */,
+				32D93B97223D6AA500F88DCF /* RoomSelectionTableViewController */,
 			);
-			path = "View Controllers";
+			path = " Controller";
 			sourceTree = "<group>";
 		};
 		74577D7F223307D7006D28A0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				748A393222373B29002A7DD8 /* AlertView.swift */,
 				748A39302237334E002A7DD8 /* AlertView.xib */,
 				74542E3C2229F0460041FB9F /* Main.storyboard */,
 			);
@@ -189,6 +222,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32D93B93223D68F000F88DCF /* RegistrationTVC+UITVDataSource+UITVDelegate.swift in Sources */,
+				32D93B96223D6A8500F88DCF /* RoomSelectionTVC+UITVDelegate+UITVDataSource.swift in Sources */,
+				32D93B8F223D67FE00F88DCF /* GuestsListTVC+UITVDelegate+UITVDataSource.swift in Sources */,
 				74577D7E22330626006D28A0 /* GuestsListTableViewController.swift in Sources */,
 				74542E4C2229F1890041FB9F /* Registration.swift in Sources */,
 				74542E392229F0460041FB9F /* AppDelegate.swift in Sources */,

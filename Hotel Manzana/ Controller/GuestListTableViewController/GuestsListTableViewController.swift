@@ -20,7 +20,6 @@ class GuestsListTableViewController: UITableViewController
             registrations = Registration.loadData() ?? []
         }
     
-    
     // MARK: - ... Prepare for Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
@@ -48,7 +47,7 @@ class GuestsListTableViewController: UITableViewController
         {
             registrations[indexPath.row] = registration
             
-            print(#function, registration)
+            print(#function, "Edit: \(registration)")
         }
             
         else if sourse.navigationItem.title == "New Registration",
@@ -60,7 +59,7 @@ class GuestsListTableViewController: UITableViewController
             registrations.append(registration)
             tableView.insertRows(at: [indexPath], with: .automatic)
             
-            print(#function, registration)
+            print(#function, "New Registration: \(registration)")
         }
         tableView.reloadData()
     }
@@ -70,58 +69,5 @@ class GuestsListTableViewController: UITableViewController
     {
         cell.textLabel?.text = (registration.firstName + " " + registration.lastName)
         cell.detailTextLabel?.text = registration.emailAddress
-        
-    }
-}
-
-// MARK: - ... GuestsListTableViewController Extensions
-extension GuestsListTableViewController
-{
-    // MARK: - ... UITabelViewDelegate Protocol
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]?
-    {
-        // Delete Cell
-        let delete = UITableViewRowAction(style: .destructive, title: "DELETE")
-        {
-            (action, indexPath) in
-            self.registrations.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-        
-        // Copy Cell
-        let insert = UITableViewRowAction(style: .normal, title: "COPY")
-        {
-            (action, indexPath) in
-            let registrationToCopy = self.registrations[indexPath.row]
-            self.registrations.insert(registrationToCopy, at: indexPath.row)
-            tableView.insertRows(at: [indexPath], with: .bottom)
-        }
-        
-        delete.backgroundColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
-        insert.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
-        
-        return [delete, insert]
-    }
-    
-    // MARK: - ... UITabelViewDataSource Protocol
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return registrations.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GuestRegistrationCell")!
-        let registration = registrations[indexPath.row]
-        
-        configure(cell: cell, with: registration)
-        
-        return cell
     }
 }
