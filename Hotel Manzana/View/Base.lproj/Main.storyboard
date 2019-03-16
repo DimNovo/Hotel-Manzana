@@ -465,7 +465,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cancelBarButtonItem" destination="o4B-D0-shJ" id="rXc-1P-cX0"/>
                         <outlet property="checkInDateLabel" destination="4am-wz-6l6" id="Mtk-bD-GM2"/>
                         <outlet property="checkInDatePicker" destination="LC7-kY-ozg" id="a5i-Z2-vY1"/>
                         <outlet property="checkOutDateLabel" destination="GEj-Pd-SFO" id="usd-vV-JVy"/>

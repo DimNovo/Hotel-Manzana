@@ -11,7 +11,6 @@ import UIKit
 class RegistrationTableViewController: UITableViewController
 {
     // MARK: - ... @IBOutlet
-    @IBOutlet weak var cancelBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -104,12 +103,6 @@ class RegistrationTableViewController: UITableViewController
         self.firstNameTextField!.text = registration.firstName
         self.lastNameTextField!.text = registration.lastName
         self.emailTextField.text = registration.emailAddress
-        self.numberOfAdultsLabel.text = String(registration.numberOfAdults)
-        self.numberOfChildrenLabel.text = String(registration.numberOfChildren)
-        self.checkInDatePicker.date = registration.checkInDate
-        self.checkOutDatePicker.date = registration.checkOutDate
-        self.wifiSwitch.setOn(registration.wifi, animated: true)
-        self.roomType = registration.roomType
     }
     
     func updateNumberOfGuests()
@@ -145,10 +138,9 @@ class RegistrationTableViewController: UITableViewController
             roomType: roomType
         )
         
-        AlertView.instance.showAlert(title: "Success!", message: "For: \(firstName) \(lastName)\nEmail: \(emailAddress)\nAdults: \(numberOfAdults) Children: \(numberOfChildren)\nRoom: \(roomType.name)\nWiFi: \(wifi ? "Yes" : "No")\nCheck In: \(checkInDateLabel.text!)\nCheck Out: \(checkOutDateLabel.text!)\n\nApproximate cost: \(Int(((checkOutDate.timeIntervalSinceNow - checkInDate.timeIntervalSinceNow)/86400))*roomType.price + ((Int(checkOutDate.timeIntervalSinceNow - checkInDate.timeIntervalSinceNow))/86400)*(wifi ? 10 : 0))$")
-        
-//        print(#function, registration)
-        
+        AlertView.instance.showAlert(title: "Success!",
+                                     message: "For: \(firstName) \(lastName)\nEmail: \(emailAddress)\nAdults: \(numberOfAdults) Children: \(numberOfChildren)\nRoom: \(roomType.name)\nWiFi: \(wifi ? "Yes" : "No")\nCheck In: \(checkInDateLabel.text!)\nCheck Out: \(checkOutDateLabel.text!)\n\nApproximate cost: \(Int(((checkOutDate.timeIntervalSinceNow - checkInDate.timeIntervalSinceNow)/86400))*roomType.price + ((Int(checkOutDate.timeIntervalSinceNow - checkInDate.timeIntervalSinceNow))/86400)*(wifi ? 10 : 0))$")
+
         dismissKeyboard()
         performSegue(withIdentifier: "SaveSegue", sender: self)
     }
@@ -176,7 +168,6 @@ class RegistrationTableViewController: UITableViewController
             
         {
             doneBarButtonItem.isEnabled = false
-            cancelBarButtonItem.isEnabled = false
         }
     }
     

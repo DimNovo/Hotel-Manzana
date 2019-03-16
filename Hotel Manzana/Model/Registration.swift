@@ -54,34 +54,28 @@ struct Registration
     
     static func loadData() -> [Registration]?
     {
-        return loadAllGuests()
-    }
-    
-    static func loadAllGuests() -> [Registration]
-    {
-        return
-            [
-                Registration(firstName: "Adriana", lastName: "Lima", emailAddress: "monaco@icloud.com", checkInDate: Date(),
-                             checkOutDate: Date(), numberOfAdults: Int(), numberOfChildren: Int(), wifi: Bool(),
-                             roomType: RoomType(id: Int(), name: String(), shortName: String(), price: Int())),
-                Registration(firstName: "Kendall", lastName: "Jenner",emailAddress: "monaco@icloud.com", checkInDate: Date(),
-                             checkOutDate: Date(), numberOfAdults: Int(), numberOfChildren: Int(), wifi: Bool(),
-                             roomType: RoomType(id: Int(), name: String(), shortName: String(), price: Int())),
-                Registration(firstName: "Alessandra", lastName: "Ambrósio",emailAddress: "monaco@icloud.com", checkInDate: Date(),
-                             checkOutDate: Date(), numberOfAdults: Int(), numberOfChildren: Int(), wifi: Bool(),
-                             roomType: RoomType(id: Int(), name: String(), shortName: String(), price: Int())),
-                Registration(firstName: "Bar", lastName: "Refaeli",emailAddress: "monaco@icloud.com", checkInDate: Date(),
-                             checkOutDate: Date(), numberOfAdults: Int(), numberOfChildren: Int(), wifi: Bool(),
-                             roomType: RoomType(id: Int(), name: String(), shortName: String(), price: Int())),
-                Registration(firstName: "Lily", lastName: "Aldridge",emailAddress: "monaco@icloud.com", checkInDate: Date(),
-                             checkOutDate: Date(), numberOfAdults: Int(), numberOfChildren: Int(), wifi: Bool(),
-                             roomType: RoomType(id: Int(), name: String(), shortName: String(), price: Int())),
-                Registration(firstName: "Cara", lastName: "Delevingne",emailAddress: "monaco@icloud.com", checkInDate: Date(),
-                             checkOutDate: Date(), numberOfAdults: Int(), numberOfChildren: Int(), wifi: Bool(),
-                             roomType: RoomType(id: Int(), name: String(), shortName: String(), price: Int())),
-                Registration(firstName: "Barbara", lastName: "Palvin",emailAddress: "monaco@icloud.com", checkInDate: Date(),
-                             checkOutDate: Date(), numberOfAdults: Int(), numberOfChildren: Int(), wifi: Bool(),
-                             roomType: RoomType(id: Int(), name: String(), shortName: String(), price: Int())),
+        return [
+            Registration(firstName: "Adriana", lastName: "Lima", emailAddress: "monaco@icloud.com", checkInDate: Date(),
+                         checkOutDate: Date(), numberOfAdults: Int(), numberOfChildren: Int(), wifi: Bool(),
+                         roomType: RoomType(id: Int(), name: String(), shortName: String(), price: Int())),
+            Registration(firstName: "Kendall", lastName: "Jenner",emailAddress: "monaco@icloud.com", checkInDate: Date(),
+                         checkOutDate: Date(), numberOfAdults: Int(), numberOfChildren: Int(), wifi: Bool(),
+                         roomType: RoomType(id: Int(), name: String(), shortName: String(), price: Int())),
+            Registration(firstName: "Alessandra", lastName: "Ambrósio",emailAddress: "monaco@icloud.com", checkInDate: Date(),
+                         checkOutDate: Date(), numberOfAdults: Int(), numberOfChildren: Int(), wifi: Bool(),
+                         roomType: RoomType(id: Int(), name: String(), shortName: String(), price: Int())),
+            Registration(firstName: "Bar", lastName: "Refaeli",emailAddress: "monaco@icloud.com", checkInDate: Date(),
+                         checkOutDate: Date(), numberOfAdults: Int(), numberOfChildren: Int(), wifi: Bool(),
+                         roomType: RoomType(id: Int(), name: String(), shortName: String(), price: Int())),
+            Registration(firstName: "Lily", lastName: "Aldridge",emailAddress: "monaco@icloud.com", checkInDate: Date(),
+                         checkOutDate: Date(), numberOfAdults: Int(), numberOfChildren: Int(), wifi: Bool(),
+                         roomType: RoomType(id: Int(), name: String(), shortName: String(), price: Int())),
+            Registration(firstName: "Cara", lastName: "Delevingne",emailAddress: "monaco@icloud.com", checkInDate: Date(),
+                         checkOutDate: Date(), numberOfAdults: Int(), numberOfChildren: Int(), wifi: Bool(),
+                         roomType: RoomType(id: Int(), name: String(), shortName: String(), price: Int())),
+            Registration(firstName: "Barbara", lastName: "Palvin",emailAddress: "monaco@icloud.com", checkInDate: Date(),
+                         checkOutDate: Date(), numberOfAdults: Int(), numberOfChildren: Int(), wifi: Bool(),
+                         roomType: RoomType(id: Int(), name: String(), shortName: String(), price: Int())),
         ]
     }
 }
