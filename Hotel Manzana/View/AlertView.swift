@@ -43,7 +43,7 @@ class AlertView: UIView
         
         alertView.layer.cornerRadius = 8
         alertDoneButton.layer.cornerRadius = 8
-        alertDoneButton.layer.borderColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+        alertDoneButton.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.600786601)
         alertDoneButton.layer.borderWidth = 2
         
         alertImage.layer.cornerRadius = 30

@@ -24,36 +24,38 @@ class GuestsListTableViewController: UITableViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         guard segue.identifier == "EditSegue" else { return }
+        guard let index = tableView.indexPathForSelectedRow?.row else { return }
         
         let controller = segue.destination as! UINavigationController
         let destination = controller.viewControllers.first as! RegistrationTableViewController
-        guard let index = tableView.indexPathForSelectedRow?.row else { return }
         
         destination.registration = registrations[index]
-        destination.navigationItem.title = "Edit"
+        destination.navigationItem.title = "Edit Registration"
         
-        print(#function, destination.registration)
+        print(#function, "Registration: \(destination.registration)")
     }
     
     // MARK: - ... Unwind Segue
     @IBAction func unwind(segue: UIStoryboardSegue)
     {
         guard segue.identifier == "SaveSegue" else { return }
-        let sourse = segue.source as! RegistrationTableViewController
-        let registration = sourse.registration
+        let source = segue.source as! RegistrationTableViewController
+        let registration = source.registration
         
-        if sourse.navigationItem.title == "Edit",
-            let indexPath = tableView.indexPathForSelectedRow
+        // Edited Cell
+        if  source.navigationItem.title == "Edit Registration"
         {
-            registrations[indexPath.row] = registration
-            
-            print(#function, "Edit: \(registration)")
-        }
-            
-        else if sourse.navigationItem.title == "New Registration",
-            !sourse.registration.firstName.isEmpty &&
-                !sourse.registration.lastName.isEmpty &&
-                !sourse.registration.emailAddress.isEmpty
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            registrations[indexPath.row] = source.registration
+
+            print(#function, "Edit Registration: \(registration)")
+        } else
+        
+        // Added Cell
+        if source.navigationItem.title == "New Registration",
+            !source.registration.firstName.isEmpty &&
+                !source.registration.lastName.isEmpty &&
+                !source.registration.emailAddress.isEmpty
         {
             let indexPath = IndexPath(row: registrations.count, section: 0)
             registrations.append(registration)

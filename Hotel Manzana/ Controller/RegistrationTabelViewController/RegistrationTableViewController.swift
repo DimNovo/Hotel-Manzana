@@ -70,26 +70,27 @@ class RegistrationTableViewController: UITableViewController
         updateDateViews()
         hideKeyboardWhenTappedAround()
         updateNumberOfGuests()
-        updateRegistrationInfo()
+        updateUserRegistrationInfo()
     }
     
     // MARK: - ... Methods
-    func updateRegistrationInfo()
+    func updateUserRegistrationInfo()
     {
-        guard navigationItem.title == "Edit" else { return }
+        guard navigationItem.title == "Edit Registration" else { return }
+        doneBarButtonItem.title = "Save"
         
         firstNameTextField.text = registration.firstName
         lastNameTextField.text = registration.lastName
         emailTextField.text = registration.emailAddress
         checkInDatePicker.date = registration.checkInDate
         checkOutDatePicker.date = registration.checkOutDate
-        numberOfAdultsLabel.text = String(registration.numberOfAdults)
-        numberOfChildrenLabel.text = String(registration.numberOfChildren)
+        numberOfAdultsStepper.value = Double(registration.numberOfAdults)
+        numberOfChildrenStepper.value = Double(registration.numberOfChildren)
         wifiSwitch.isOn = registration.wifi
         roomType = registration.roomType
         
         updateDateViews()
-        tableView.reloadData()
+        updateNumberOfGuests()
     }
     
     func updateDateViews()
@@ -112,31 +113,22 @@ class RegistrationTableViewController: UITableViewController
     // MARK: - ... @IBAction
     @IBAction func doneBarButtonTapped(_ sender: UIBarButtonItem)
     {
-        let firstName = firstNameTextField.text!
-        let lastName = lastNameTextField.text!
-        let emailAddress = emailTextField.text!
-        let checkInDate = checkInDatePicker.date
-        let checkOutDate = checkOutDatePicker.date
-        let numberOfAdults = Int(numberOfAdultsStepper.value)
-        let numberOfChildren = Int(numberOfChildrenStepper.value)
-        let wifi = wifiSwitch.isOn
-        
         guard let roomType = roomType else { return }
         
             registration = Registration(
-            firstName: firstName,
-            lastName: lastName,
-            emailAddress: emailAddress,
-            checkInDate: checkInDate,
-            checkOutDate: checkOutDate,
-            numberOfAdults: numberOfAdults,
-            numberOfChildren: numberOfChildren,
-            wifi: wifi,
+            firstName: firstNameTextField.text!,
+            lastName: lastNameTextField.text!,
+            emailAddress: emailTextField.text!,
+            checkInDate: checkInDatePicker.date,
+            checkOutDate: checkOutDatePicker.date,
+            numberOfAdults: Int(numberOfAdultsStepper.value),
+            numberOfChildren: Int(numberOfChildrenStepper.value),
+            wifi: wifiSwitch.isOn,
             roomType: roomType
         )
         
         AlertView.instance.showAlert(title: "Success",
-                                     message: "For: \(firstName) \(lastName)\nEmail: \(emailAddress)\nAdults: \(numberOfAdults) Children: \(numberOfChildren)\nRoom: \(roomType.name)\nWiFi: \(wifi ? "Yes" : "No")\nCheck In: \(checkInDateLabel.text!)\nCheck Out: \(checkOutDateLabel.text!)\n\nApproximate cost: \(Int(((checkOutDate.timeIntervalSinceNow - checkInDate.timeIntervalSinceNow)/86400))*roomType.price + ((Int(checkOutDate.timeIntervalSinceNow - checkInDate.timeIntervalSinceNow))/86400)*(wifi ? 10 : 0))$")
+                                     message: "For: \(registration.firstName) \(registration.lastName)\nEmail: \(registration.emailAddress)\nAdults: \(registration.numberOfAdults) Children: \(registration.numberOfChildren)\nRoom: \(roomType.name)\nWiFi: \(wifiSwitch.isOn ? "Yes" : "No")\nCheck In: \(checkInDateLabel.text!)\nCheck Out: \(checkOutDateLabel.text!)\n\nApproximate cost: \(Int(((checkOutDatePicker.date.timeIntervalSinceNow - checkInDatePicker.date.timeIntervalSinceNow)/86400))*roomType.price + ((Int(checkOutDatePicker.date.timeIntervalSinceNow - checkInDatePicker.date.timeIntervalSinceNow))/86400)*(wifiSwitch.isOn ? 10 : 0))$")
 
         dismissKeyboard()
         performSegue(withIdentifier: "SaveSegue", sender: self)
