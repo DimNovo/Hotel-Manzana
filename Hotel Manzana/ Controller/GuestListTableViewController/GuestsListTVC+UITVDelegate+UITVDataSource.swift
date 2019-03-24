@@ -12,11 +12,6 @@ import UIKit
 extension GuestsListTableViewController
 {
     // MARK: - ... UITabelViewDelegate Protocol
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]?
     {
         // Delete Cell
@@ -50,7 +45,6 @@ extension GuestsListTableViewController
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "GuestRegistrationCell")!
         let registration = registrations[indexPath.row]
         

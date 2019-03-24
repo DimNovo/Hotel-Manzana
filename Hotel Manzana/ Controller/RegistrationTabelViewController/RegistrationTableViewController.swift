@@ -129,7 +129,6 @@ class RegistrationTableViewController: UITableViewController
         
         AlertView.instance.showAlert(title: "Success",
                                      message: "For: \(registration.firstName) \(registration.lastName)\nEmail: \(registration.emailAddress)\nAdults: \(registration.numberOfAdults) Children: \(registration.numberOfChildren)\nRoom: \(roomType.name)\nWiFi: \(wifiSwitch.isOn ? "Yes" : "No")\nCheck In: \(checkInDateLabel.text!)\nCheck Out: \(checkOutDateLabel.text!)\n\nApproximate cost: \(Int(((checkOutDatePicker.date.timeIntervalSinceNow - checkInDatePicker.date.timeIntervalSinceNow)/86400))*roomType.price + ((Int(checkOutDatePicker.date.timeIntervalSinceNow - checkInDatePicker.date.timeIntervalSinceNow))/86400)*(wifiSwitch.isOn ? 10 : 0))$")
-
         dismissKeyboard()
         performSegue(withIdentifier: "SaveSegue", sender: self)
     }
@@ -176,7 +175,7 @@ class RegistrationTableViewController: UITableViewController
         let controller = segue.source as! RoomSelectionTableViewController
         roomType = controller.selectedRoomType
         
-        if navigationItem.title == "Edit"
+        if  navigationItem.title == "Edit Registration"
         {
             doneBarButtonItem.isEnabled = true
         }

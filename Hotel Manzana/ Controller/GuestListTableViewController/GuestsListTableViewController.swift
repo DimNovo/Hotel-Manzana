@@ -15,24 +15,22 @@ class GuestsListTableViewController: UITableViewController
     
     // MARK: - ... UIViewController Methods
     override func viewDidLoad()
-        {
-            super.viewDidLoad()
-            registrations = Registration.loadData() ?? []
-        }
+    {
+        super.viewDidLoad()
+        registrations = Registration.loadData() ?? []
+    }
     
     // MARK: - ... Prepare for Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        guard segue.identifier == "EditSegue" else { return }
+        guard segue.identifier == "EditRegistrationSegue" else { return }
         guard let index = tableView.indexPathForSelectedRow?.row else { return }
         
         let controller = segue.destination as! UINavigationController
         let destination = controller.viewControllers.first as! RegistrationTableViewController
         
-        destination.registration = registrations[index]
         destination.navigationItem.title = "Edit Registration"
-        
-        print(#function, "Registration: \(destination.registration)")
+        destination.registration = registrations[index]
     }
     
     // MARK: - ... Unwind Segue
@@ -43,27 +41,23 @@ class GuestsListTableViewController: UITableViewController
         let registration = source.registration
         
         // Edited Cell
-        if  source.navigationItem.title == "Edit Registration"
+        if  source.navigationItem.title == "Edit Registration",
+            let indexPath = tableView.indexPathForSelectedRow
         {
-            guard let indexPath = tableView.indexPathForSelectedRow else { return }
-            registrations[indexPath.row] = source.registration
-
-            print(#function, "Edit Registration: \(registration)")
+            registrations[indexPath.row] = registration
+            tableView.reloadRows(at: [indexPath], with: .automatic)
         } else
-        
-        // Added Cell
-        if source.navigationItem.title == "New Registration",
-            !source.registration.firstName.isEmpty &&
-                !source.registration.lastName.isEmpty &&
-                !source.registration.emailAddress.isEmpty
-        {
-            let indexPath = IndexPath(row: registrations.count, section: 0)
-            registrations.append(registration)
-            tableView.insertRows(at: [indexPath], with: .automatic)
             
-            print(#function, "New Registration: \(registration)")
+            // Added Cell
+            if source.navigationItem.title == "New Registration",
+                !source.registration.firstName.isEmpty &&
+                    !source.registration.lastName.isEmpty &&
+                    !source.registration.emailAddress.isEmpty
+            {
+                let indexPath = IndexPath(row: registrations.count, section: 0)
+                registrations.append(registration)
+                tableView.insertRows(at: [indexPath], with: .automatic)
         }
-        tableView.reloadData()
     }
     
     // MARK: - ... Methods

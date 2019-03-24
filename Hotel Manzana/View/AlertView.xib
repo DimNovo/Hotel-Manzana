@@ -67,6 +67,7 @@
                                     </state>
                                     <connections>
                                         <action selector="alertDoneButtonPressed:" destination="-1" eventType="touchUpInside" id="gbf-jf-BvN"/>
+                                        <action selector="unwindWithSegue:" destination="-2" eventType="touchUpInside" id="aFw-lh-gMd"/>
                                     </connections>
                                 </button>
                             </subviews>
