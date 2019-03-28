@@ -12,12 +12,25 @@ class GuestsListTableViewController: UITableViewController
 {
     // MARK: - ... Properties
     var registrations = [Registration]()
+    {
+        didSet
+        {
+            RegistrationStorage.shared.saveToStorage(registrations: registrations) //Save To Plist
+        }
+    }
     
     // MARK: - ... UIViewController Methods
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        registrations = Registration.loadData() ?? []
+        if let registrations = RegistrationStorage.shared.loadFromStorage()
+        {
+            self.registrations = registrations                                   //Load From Plist
+        }
+        else
+        {
+            registrations = Registration.loadDefaults() ?? []
+        }
     }
     
     // MARK: - ... Prepare for Segue

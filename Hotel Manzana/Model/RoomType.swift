@@ -6,7 +6,7 @@
 //  Copyright © 2019 Dmitry Novosyolov. All rights reserved.
 //
 
-struct RoomType
+struct RoomType: Codable
 {
     var id: Int
     var name: String

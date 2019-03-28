@@ -22,6 +22,7 @@
 		748A39312237334E002A7DD8 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 748A39302237334E002A7DD8 /* AlertView.xib */; };
 		748A393322373B29002A7DD8 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748A393222373B29002A7DD8 /* AlertView.swift */; };
 		74CB752B222DF998000E4D85 /* ExtensionKeyboardHideByTapAround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CB752A222DF998000E4D85 /* ExtensionKeyboardHideByTapAround.swift */; };
+		74F8BE76224C6BE3007F093D /* RegistrationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8BE75224C6BE3007F093D /* RegistrationStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		748A39302237334E002A7DD8 /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
 		748A393222373B29002A7DD8 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		74CB752A222DF998000E4D85 /* ExtensionKeyboardHideByTapAround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionKeyboardHideByTapAround.swift; sourceTree = "<group>"; };
+		74F8BE75224C6BE3007F093D /* RegistrationStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			children = (
 				74542E4B2229F1890041FB9F /* Registration.swift */,
 				74542E4D2229F35D0041FB9F /* RoomType.swift */,
+				74F8BE75224C6BE3007F093D /* RegistrationStorage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				TargetAttributes = {
 					74542E342229F0460041FB9F = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -230,6 +234,7 @@
 				74542E392229F0460041FB9F /* AppDelegate.swift in Sources */,
 				74542E502229F58C0041FB9F /* RegistrationTableViewController.swift in Sources */,
 				741D90852230683900C26615 /* RoomSelectionTableViewController.swift in Sources */,
+				74F8BE76224C6BE3007F093D /* RegistrationStorage.swift in Sources */,
 				748A393322373B29002A7DD8 /* AlertView.swift in Sources */,
 				74542E4E2229F35D0041FB9F /* RoomType.swift in Sources */,
 				74CB752B222DF998000E4D85 /* ExtensionKeyboardHideByTapAround.swift in Sources */,
@@ -387,7 +392,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "learnSwift.Hotel-Manzana";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -405,7 +410,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "learnSwift.Hotel-Manzana";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
